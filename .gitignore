@@ -1,0 +1,24 @@
+.DS_Store
+
+# Never publish raw local evidence.
+raw/
+private/
+*.eml
+*.jsonl
+*.sqlite
+*.db
+*.tar
+*.tar.gz
+*.zip
+
+# Never publish secrets or local agent state.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.mobileprovision
+settings.local.json
+.credentials.json
+.claude.json
+
