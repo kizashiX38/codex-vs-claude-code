@@ -95,13 +95,17 @@ High-signal Windows Codex findings:
 | The handoff rejects the absolute claim that a closed session is simply gone forever. | Codex corrected a bad Claude framing by grounding the answer in persisted transcript/session files. |
 | The handoff identifies binary/runtime/root mismatch as a likely reason the same Claude session file behaved differently in different places. | Codex converted a mystical-feeling continuity failure into inspectable operational variables. |
 | A separate isolated Claude test root exists around the recovered session file. | Codex/Windows-side work created a safer test lane instead of mutating the main Claude root. |
+| Windows exports show a compaction/context-preservation incident where the user had to ask Claude to create proper Markdown memory files after an inadequate compact. | Claude's context management created extra user burden; the durable value was only recovered after explicit user direction and later file inspection. |
+| Windows-side helper scripts exist for scanning Claude sessions across accounts and extracting continuity markers. | The recovery work had become procedural enough that scripts were needed to find what Claude should have tracked cleanly. |
+| Some local helper scripts contain hardcoded SSH connection details. | Raw evidence cannot be published directly; the repo must keep only sanitized summaries and never include these helper scripts. |
 
 Evidence value:
 
 - This is a distinct evidence node from Mac, Arch, and Debian Linux home.
 - It supports the claim that Codex acted as the forensic/operator layer over Claude's own session state.
 - It also supports the "Claude made the user become middleware" pattern: the useful continuity map was produced by Codex after repeated Claude-side confusion.
-- The public repo should describe the finding, but raw paths, volume IDs, account names, exact session IDs, and transcript content should stay local-only.
+- It adds a separate compaction/context-loss exhibit from April 2026, where the user had to force memory preservation after context was compressed badly.
+- The public repo should describe the finding, but raw paths, volume IDs, account names, exact session IDs, transcript content, helper scripts, and credentials should stay local-only.
 
 ## Newly Supported Evidence Rows
 
@@ -110,6 +114,8 @@ Evidence value:
 - `D3`: Debian model/provider failure loop — Codex debugged OpenClaw provider/model errors.
 - `D4`: Claude session ingestion/indexing — Codex read and indexed large Claude session artifacts.
 - `W1`: Windows Codex handoff for Claude — Codex preserved Windows/Arch recovery state and mapped Lara/Claude session-continuity evidence.
+- `W2`: Windows compaction/context-preservation incident — Claude required explicit user direction to write durable memory files after context loss.
+- `W3`: Windows helper-script evidence risk — local scripts prove procedural recovery work, but raw scripts contain secrets and must remain private.
 
 ## Blockers
 
@@ -118,12 +124,14 @@ Evidence value:
 
 ## Next Exact Step
 
-Extract five public-safe snippets:
+Extract seven public-safe snippets:
 
 1. Arch: task line showing large Claude session read + sanitized summary.
 2. Arch: task line showing index generation over 41 Claude session JSONLs.
 3. Debian: RDP handoff problem/action/success marker.
 4. Debian: OpenClaw migration/model-provider failure handle.
 5. Windows Codex: handoff section showing origin-vs-continuity split and the correction that persisted session files still matter.
+6. Windows Claude export: compaction/context-preservation request and resulting memory-file creation, paraphrased only.
+7. Windows helper scripts: existence and purpose, with secret-bearing lines excluded.
 
 Do not paste raw history lines without redaction.
