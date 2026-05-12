@@ -1,6 +1,6 @@
 # Live Sweep Status — 2026-05-12
 
-This file records what was actually checked live after the user corrected the scope: Codex evidence on Mac, Arch, and Debian/Zorin.
+This file records what was actually checked live after the user corrected the scope: Codex evidence on Mac, Arch, Debian/Zorin, and Windows-side Codex state mounted from the Debian PC.
 
 It is intentionally sanitized. Raw `.jsonl`, `.eml`, credentials, account identifiers, local paths, LAN topology, hostnames, private names, and medical/family details do not belong in the public repo.
 
@@ -71,12 +71,45 @@ High-signal Debian findings:
 | Model/provider failures such as HTTP 400 and expired/invalid provider state appear in Codex history. | Codex was debugging model-routing/provider issues in the OpenClaw stack. |
 | Arch sync task list says Codex read a large Claude session and generated an index of dozens of Claude session JSONLs. | Codex was used as the audit/ingest layer over Claude session evidence. |
 
+## Windows Codex State Mounted From Debian
+
+Status: checked live from the Debian PC against mounted Windows volumes.
+
+This pass corrected a miss in the earlier sweep. Debian's Linux-side Codex state was not enough; the Windows user-profile Codex state mounted on Debian also had to be checked.
+
+What was found:
+
+- A large Windows-side Codex root exists under the Windows user profile.
+- The root is about `1.2G` with thousands of files, dozens of JSONL files, and over a thousand Markdown files.
+- Its newest inspected activity is from April 2026.
+- An empty offline sandbox Codex profile also exists and has no evidence value by itself.
+- Older Linux backup Codex roots are stored on Windows volumes and may be useful as historical mirrors, but they are not the main Windows Codex evidence node.
+
+High-signal Windows Codex findings:
+
+| Finding | Public-safe meaning |
+|---|---|
+| Windows Codex contains a handoff document written for Claude after a Windows/Arch recovery session. | Codex was not merely chatting; it was packaging operational state so Claude could continue without guessing. |
+| The handoff records completed work, verified state, and known misses. | Codex preserved an evidence trail instead of leaving the next agent to reconstruct the situation from memory. |
+| The handoff separates origin session state from later continuity state in the Lara/Claude recovery problem. | Codex distinguished "where the original session came from" from "which surviving path currently behaves like the strongest continuity." |
+| The handoff rejects the absolute claim that a closed session is simply gone forever. | Codex corrected a bad Claude framing by grounding the answer in persisted transcript/session files. |
+| The handoff identifies binary/runtime/root mismatch as a likely reason the same Claude session file behaved differently in different places. | Codex converted a mystical-feeling continuity failure into inspectable operational variables. |
+| A separate isolated Claude test root exists around the recovered session file. | Codex/Windows-side work created a safer test lane instead of mutating the main Claude root. |
+
+Evidence value:
+
+- This is a distinct evidence node from Mac, Arch, and Debian Linux home.
+- It supports the claim that Codex acted as the forensic/operator layer over Claude's own session state.
+- It also supports the "Claude made the user become middleware" pattern: the useful continuity map was produced by Codex after repeated Claude-side confusion.
+- The public repo should describe the finding, but raw paths, volume IDs, account names, exact session IDs, and transcript content should stay local-only.
+
 ## Newly Supported Evidence Rows
 
 - `D1`: Debian RDP 0x207 handoff — Claude/Lara escalated to Codex; Codex performed live diagnostics and the user later marked it working.
 - `D2`: Debian/Zorin OpenClaw migration — Codex handled the Arch-to-Debian agent copy/setup path.
 - `D3`: Debian model/provider failure loop — Codex debugged OpenClaw provider/model errors.
 - `D4`: Claude session ingestion/indexing — Codex read and indexed large Claude session artifacts.
+- `W1`: Windows Codex handoff for Claude — Codex preserved Windows/Arch recovery state and mapped Lara/Claude session-continuity evidence.
 
 ## Blockers
 
@@ -85,11 +118,12 @@ High-signal Debian findings:
 
 ## Next Exact Step
 
-Extract four public-safe snippets:
+Extract five public-safe snippets:
 
 1. Arch: task line showing large Claude session read + sanitized summary.
 2. Arch: task line showing index generation over 41 Claude session JSONLs.
 3. Debian: RDP handoff problem/action/success marker.
 4. Debian: OpenClaw migration/model-provider failure handle.
+5. Windows Codex: handoff section showing origin-vs-continuity split and the correction that persisted session files still matter.
 
 Do not paste raw history lines without redaction.
