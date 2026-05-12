@@ -10,19 +10,19 @@ This is a consumer-warning and product-quality case study. It focuses on observa
 
 ## Status
 
-Private GitHub draft. Do not make public yet.
+Public sanitized draft. Raw evidence stays local-only.
 
 Blocking items:
 
 - Rotate and scrub known exposed tokens before any public release.
 - Redact private names, emails, receipt numbers, account identifiers, medical/family details, and raw emotional crisis content.
-- Do not publish raw `.eml`, `.jsonl`, `.claude`, or transcript exports.
-- Confirm public author identity before public release.
+- Do not publish raw `.eml`, `.jsonl`, `.claude`, `.codex`, transcript exports, device topology, LAN IPs, unredacted local paths, or private account identifiers.
 
 ## Documents
 
 - [CLAIMS.md](CLAIMS.md): public claims and what evidence is needed for each.
 - [CASE_STUDY.md](CASE_STUDY.md): main three-agent convergence narrative.
+- [EVIDENCE_MATRIX.md](EVIDENCE_MATRIX.md): incident-by-incident map from Claude failure pattern to Codex repair action and public-safe claim.
 - [ARCH_FINDINGS.md](ARCH_FINDINGS.md): Arch machine evidence on Claude state sprawl, missed existing config, stale sync source, and final Max scaffold.
 - [CODEX_ARCH_FINDINGS.md](CODEX_ARCH_FINDINGS.md): Arch Codex evidence showing the repair loop, memory bridge, and verified network diagnosis.
 - [CODEX_THREE_DEVICE_SWEEP.md](CODEX_THREE_DEVICE_SWEEP.md): Mac + Debian + Arch sweep index for Codex repair evidence across the three-device environment.
