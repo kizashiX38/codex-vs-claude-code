@@ -21,25 +21,33 @@ Evidence value:
 
 ## Arch
 
-Status: not reachable live from the Mac during this pass.
+Status: checked live on redo pass.
 
-Observed current network state:
+The first pass was wrong/incomplete because the Mac was not seeing the wired interface at that moment. Redo pass showed the wired interface active again and SSH round-trips to the Arch host succeeded.
 
-- The Mac was only on the Wi-Fi subnet plus a VPN/tunnel interface.
-- The old wired subnet route went through the tunnel, not a local wired interface.
-- Tailscale CLI reported Tailscale stopped.
-- SSH to the remembered Arch addresses timed out.
+What was found:
 
-What could still be used safely:
+- Arch Codex state is substantial.
+- Multiple Claude account/config trees exist alongside Codex state.
+- Arch Codex contains imported Claude session material.
+- Arch Codex contains generated session indexes for Claude session JSONLs.
+- Arch Codex contains sanitized summaries/timelines derived from large Claude sessions.
+- Arch Codex contains May 2026 session state, including a May 11 Codex rollout.
 
-- Mac Codex memory mirror for the Arch SSH repair.
-- The existing sanitized Arch evidence docs already in this repo.
-- Debian Codex memory references to Arch-originated Claude sessions and the Arch sync task list.
+High-signal Arch findings:
+
+| Finding | Public-safe meaning |
+|---|---|
+| Codex memory task list says Codex read a large Claude session and wrote a sanitized summary. | Codex was used to ingest and summarize Claude session evidence that was too large for casual manual review. |
+| Codex memory task list says Codex generated an index of 41 Claude session JSONLs. | Codex created navigable structure over Claude's own sprawling artifacts. |
+| Codex memory includes Claude session indexes with model/date/export columns. | Codex turned raw Claude history into an auditable evidence table. |
+| Codex memory contains OpenClaw/Claude operational summaries and EWA-style evidence reports. | Codex was already functioning as the evidence and operations layer over the Claude/OpenClaw stack. |
+| Direct Arch Codex search found recent May 2026 sessions and older March/April repair sessions with many Claude/OpenClaw hits. | The repair trail is not only local Mac memory; it exists on the Arch Codex machine itself. |
 
 Evidence value:
 
-- No new live Arch file read was completed in this pass.
-- Existing Arch evidence remains valid as historical evidence, but should be labeled as memory/repo-derived unless Arch is reconnected and rechecked live.
+- The earlier `Arch blocked` status is superseded.
+- Live Arch read confirms direct on-machine evidence for Claude-session ingestion, indexing, OpenClaw repair context, and Codex-as-audit-layer.
 
 ## Debian/Zorin
 
@@ -72,14 +80,16 @@ High-signal Debian findings:
 
 ## Blockers
 
-- Live Arch sweep is blocked until the Mac can reach Arch again through the local network or Tailscale/VPN.
-- Raw Debian evidence contains secrets and private content, so only sanitized summaries should enter the public repo.
+- Raw Arch and Debian evidence contains secrets and private content, so only sanitized summaries should enter the public repo.
+- Exact session IDs, local paths, hostnames, LAN IPs, account identifiers, tokens, and private transcript content must stay out.
 
 ## Next Exact Step
 
-Extract two public-safe snippets from Debian:
+Extract four public-safe snippets:
 
-1. RDP handoff: problem statement, Codex action, success marker.
-2. Claude-session ingestion: task line showing large Claude session read + index generated.
+1. Arch: task line showing large Claude session read + sanitized summary.
+2. Arch: task line showing index generation over 41 Claude session JSONLs.
+3. Debian: RDP handoff problem/action/success marker.
+4. Debian: OpenClaw migration/model-provider failure handle.
 
 Do not paste raw history lines without redaction.
