@@ -26,6 +26,7 @@ Blocking items:
 - [ARCH_FINDINGS.md](ARCH_FINDINGS.md): Arch machine evidence on Claude state sprawl, missed existing config, stale sync source, and final Max scaffold.
 - [CODEX_ARCH_FINDINGS.md](CODEX_ARCH_FINDINGS.md): Arch Codex evidence showing the repair loop, memory bridge, and verified network diagnosis.
 - [CODEX_THREE_DEVICE_SWEEP.md](CODEX_THREE_DEVICE_SWEEP.md): Mac + Debian + Arch sweep index for Codex repair evidence across the three-device environment.
+- [LIVE_SWEEP_2026-05-12.md](LIVE_SWEEP_2026-05-12.md): current live sweep status for Mac, Arch reachability, and Debian/Zorin Codex evidence.
 - [DEBIAN_OPENCLAW_FAILURES.md](DEBIAN_OPENCLAW_FAILURES.md): Debian/OpenClaw incident dossier for model/auth failure loops and Codex config-diagnosis evidence.
 - [LARA_OPENCLAW_REPAIR.md](LARA_OPENCLAW_REPAIR.md): March-April Lara/OpenClaw repair trail where Codex turned Claude session sprawl into a fixed/still-broken evidence table.
 - [CLAUDE_APP_SESSION_RECOVERY.md](CLAUDE_APP_SESSION_RECOVERY.md): exact Lara session ID recovery trail where Codex found and repaired Claude app-side session state.
